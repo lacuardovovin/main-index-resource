@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pg模拟器 - 轻量导航介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #faf9f7;
+      color: #2a2a2a;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.4rem 1.6rem 4rem;
+    }
+
+    /* 顶部导航 */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #e6e4e0;
+      margin-bottom: 2.8rem;
+    }
+    .nav-brand {
+      font-weight: 550;
+      font-size: 1.1rem;
+      letter-spacing: -0.01em;
+      color: #1f1f1f;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.9rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #4b4b4b;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover {
+      color: #1a1a1a;
+    }
+
+    /* hero */
+    .hero {
+      margin-bottom: 3rem;
+    }
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 520;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      margin-bottom: 1.2rem;
+      color: #1b1b1b;
+    }
+    .hero p {
+      font-size: 1rem;
+      color: #4a4a4a;
+      max-width: 600px;
+    }
+
+    /* 介绍段 */
+    .intro {
+      margin-bottom: 3.2rem;
+    }
+    .intro p {
+      margin-bottom: 1rem;
+    }
+    .intro a {
+      color: #1a5c7a;
+      text-decoration: none;
+      border-bottom: 1px solid #c6d8e4;
+      font-weight: 450;
+    }
+    .intro a:hover {
+      border-bottom-color: #1a5c7a;
+    }
+
+    /* 场景模块（三个卡片） */
+    .scenes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .scene-card {
+      flex: 1 1 180px;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.8rem 1.2rem 1.6rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.03);
+      border: 1px solid #efede9;
+      transition: box-shadow 0.2s;
+    }
+    .scene-card:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03), 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .scene-card h3 {
+      font-size: 1.1rem;
+      font-weight: 520;
+      margin-bottom: 0.6rem;
+      color: #1b1b1b;
+    }
+    .scene-card p {
+      font-size: 0.9rem;
+      color: #5a5a5a;
+      line-height: 1.5;
+    }
+    .scene-card .emoji-badge {
+      display: inline-block;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* 常见说明 (faq-like) */
+    .faq-section {
+      margin-top: 1rem;
+      margin-bottom: 3rem;
+    }
+    .faq-section h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 1.4rem;
+      letter-spacing: -0.01em;
+      color: #1b1b1b;
+    }
+    .faq-item {
+      border-bottom: 1px solid #eae7e2;
+      padding: 1rem 0;
+    }
+    .faq-item:first-of-type {
+      border-top: 1px solid #eae7e2;
+    }
+    .faq-question {
+      font-weight: 500;
+      font-size: 0.98rem;
+      margin-bottom: 0.35rem;
+      color: #2d2d2d;
+    }
+    .faq-answer {
+      font-size: 0.9rem;
+      color: #5a5a5a;
+      line-height: 1.55;
+    }
+    .faq-answer a {
+      color: #1a5c7a;
+      border-bottom: 1px solid #d0dbe3;
+      text-decoration: none;
+    }
+    .faq-answer a:hover {
+      border-bottom-color: #1a5c7a;
+    }
+
+    /* 底部微小 */
+    .footer-note {
+      margin-top: 3.5rem;
+      font-size: 0.8rem;
+      color: #8e8b86;
+      text-align: center;
+      border-top: 1px solid #e6e4e0;
+      padding-top: 2rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 500px) {
+      .page {
+        padding: 1.6rem 1rem 3rem;
+      }
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+        padding-bottom: 1.4rem;
+      }
+      .nav-links {
+        gap: 1.2rem;
+      }
+      .scenes {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <!-- 顶部导航 -->
+  <nav>
+    <span class="nav-brand">pg·模拟器</span>
+    <div class="nav-links">
+      <a href="#intro">介绍</a>
+      <a href="#scenes">场景</a>
+      <a href="#faq">常见说明</a>
+    </div>
+  </nav>
+
+  <!-- hero -->
+  <div class="hero">
+    <h1>快速识别网站用途<br>一个页面就够了</h1>
+    <p>你可能是偶然看到「pg模拟器」这个词，想确认这个网站到底做什么、是否适合你。下面整理了核心信息，不用来回翻找。</p>
+  </div>
+
+  <!-- 介绍段落 (包含唯一链接) -->
+  <div class="intro" id="intro">
+    <p><a href="https://main-index-pg.com">pg模拟器</a> 是一个专注提供模拟器相关内容的站点，主要面向希望快速了解或试用模拟环境的用户。网站内容围绕模拟器的基本概念、常见用途以及实际场景展开，不包含复杂注册流程或隐藏门槛。</p>
+    <p>如果你之前对模拟器接触不多，可以从下面几个场景模块入手，了解它大致能用在什么地方。每个模块都对应一类常见的使用需求，方便你对照自己的情况判断。</p>
+  </div>
+
+  <!-- 三个场景模块 -->
+  <div class="scenes" id="scenes">
+    <div class="scene-card">
+      <div class="emoji-badge">⚙️</div>
+      <h3>本地试用</h3>
+      <p>想在不影响当前环境的前提下测试某个应用或配置。通过模拟器快速搭建一个独立空间，用完即弃，不影响主机设置。</p>
+    </div>
+    <div class="scene-card">
+      <div class="emoji-badge">🧪</div>
+      <h3>功能验证</h3>
+      <p>开发者或普通用户需要检验某个操作在不同参数下的表现。模拟器提供可控的虚拟环境，便于重复验证与对比。</p>
+    </div>
+    <div class="scene-card">
+      <div class="emoji-badge">📚</div>
+      <h3>学习参考</h3>
+      <p>初学者希望了解模拟器的基础逻辑和操作流程。网站内容偏向实用说明，适合用作入门阶段的参考资料。</p>
+    </div>
+  </div>
+
+  <!-- 常见说明 (FAQ摘要) -->
+  <div class="faq-section" id="faq">
+    <h2>常见说明</h2>
+
+    <div class="faq-item">
+      <div class="faq-question">这个网站适合完全没接触过模拟器的人吗？</div>
+      <div class="faq-answer">
+        是的。内容尽量避免使用过多专业缩写，主要围绕「模拟器能做什么」来组织。你可以先看场景模块，再决定是否需要深入。
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">需要下载或安装额外软件吗？</div>
+      <div class="faq-answer">
+        网站本身是信息页，不提供软件包。不过你可以从 <a href="https://main-index-pg.com">pg模拟器</a> 页面中找到进一步说明，了解如何获取或使用相关工具。
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">内容会更新吗？</div>
+      <div class="faq-answer">
+        页面会根据模拟器相关信息的变动进行调整。如果发现某些描述与你的实际体验不符，可以留意网站后续版本。
+      </div>
+    </div>
+  </div>
+
+  <!-- 底部 (非链接的文本) -->
+  <div class="footer-note">
+    基于整理的信息参考 · 页面保持轻量
+  </div>
+</div>
+</body>
+</html>
